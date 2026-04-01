@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #071226;
+  color: #eaf2ff;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #a8b6cc;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #0b1a33;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.chart-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.chart-top h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.chart-top p {
+  color: #9fb0c8;
+}
+
+.range-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.range-btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #12284b;
+  color: #fff;
+  transition: 0.2s;
+  font-weight: 600;
+}
+
+.range-btn:hover {
+  background: #1e3d72;
+}
+
+.range-btn.active {
+  background: #2ecc71;
+  color: #062012;
+}
+
+.chart-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  color: #c7d2e4;
+}
+
+.chart-container {
+  height: 420px;
+}
+
+.list-header {
+  margin-bottom: 15px;
+}
+
+.list-header h2 {
+  margin-bottom: 6px;
+}
+
+.list-header p {
+  color: #9fb0c8;
+}
+
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 700px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.stock-item {
+  background: #091528;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  transition: 0.2s;
+}
+
+.stock-item:hover {
+  border-color: #2ecc71;
+  transform: translateY(-2px);
+}
+
+.stock-item.active {
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.08);
+}
+
+.stock-left h3 {
+  margin-bottom: 5px;
+}
+
+.stock-left p {
+  color: #9fb0c8;
+  font-size: 14px;
+}
+
+.stock-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.details-card h2 {
+  margin-bottom: 16px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.detail-item {
+  background: #091528;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.detail-item span {
+  display: block;
+  color: #9fb0c8;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.summary-box {
+  background: #091528;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.summary-box h3 {
+  margin-bottom: 10px;
+}
+
+.summary-box p {
+  line-height: 1.7;
+  color: #d6e2f3;
+}
+
+.profit-positive {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.profit-negative {
+  color: #ff5c5c;
+  font-weight: bold;
+}
+
+.loading-box,
+.error-box {
+  background: #0b1a33;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error-box {
+  color: #ffb3b3;
+  border: 1px solid rgba(255, 92, 92, 0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 55px;
+  height: 55px;
+  border: 6px solid rgba(255, 255, 255, 0.15);
+  border-top: 6px solid #2ecc71;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .chart-top {
+    flex-direction: column;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stock-item {
+    flex-direction: column;
+  }
+
+  .stock-right {
+    align-items: flex-start;
+  }
+
+  .chart-container {
+    height: 300px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+}

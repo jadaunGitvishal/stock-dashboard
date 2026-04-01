@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Portfolio Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>Stock Portfolio Dashboard</h1>
+        <p>Track stocks, chart ranges, and detailed portfolio information</p>
+      </header>
+
+      <div id="loading" class="loading-box">
+        <div class="spinner"></div>
+        <p>Fetching stock data... API may take some time to start.</p>
+      </div>
+
+      <div id="errorBox" class="error-box hidden"></div>
+
+      <main id="mainContent" class="main-layout hidden">
+        <section class="left-section">
+          <div class="card chart-card">
+            <div class="chart-top">
+              <div>
+                <h2 id="companyTitle">AAPL</h2>
+                <p id="companySubTitle">Stock performance</p>
+              </div>
+
+              <div class="range-buttons">
+                <button class="range-btn active" data-range="1mo">
+                  1month
+                </button>
+                <button class="range-btn" data-range="3mo">3month</button>
+                <button class="range-btn" data-range="1y">1year</button>
+                <button class="range-btn" data-range="5y">5year</button>
+              </div>
+            </div>
+
+            <div class="chart-stats">
+              <span>Peak: <strong id="peakValue">$0.00</strong></span>
+              <span>Low: <strong id="lowValue">$0.00</strong></span>
+            </div>
+
+            <div class="chart-container">
+              <canvas id="stockChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card details-card">
+            <h2>Stock Details</h2>
+
+            <div class="details-grid">
+              <div class="detail-item">
+                <span>Name</span>
+                <strong id="detailName">-</strong>
+              </div>
+              <div class="detail-item">
+                <span>Book Value</span>
+                <strong id="detailBookValue">-</strong>
+              </div>
+              <div class="detail-item">
+                <span>Profit</span>
+                <strong id="detailProfit">-</strong>
+              </div>
+              <div class="detail-item">
+                <span>Stock Code</span>
+                <strong id="detailSymbol">-</strong>
+              </div>
+            </div>
+
+            <div class="summary-box">
+              <h3>Summary</h3>
+              <p id="detailSummary">-</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="card list-card">
+          <div class="list-header">
+            <h2>Portfolio Stocks</h2>
+            <p>Click any stock to change chart and details</p>
+          </div>
+
+          <div id="stockList" class="stock-list"></div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
